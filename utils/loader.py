@@ -1,5 +1,4 @@
-# utils/loader.py
-from pypdf import PdfReader #type:ignore
+from pypdf import PdfReader
 
 def load_pdfs_from_paths(paths):
     documents = []
@@ -14,4 +13,3 @@ def load_pdfs_from_paths(paths):
         except Exception as e:
             print(f"Error reading {path}: {e}")
     return documents
-
