@@ -1,6 +1,5 @@
-# utils/qa.py
 from utils.embed_store import search
-from utils.hf_api import query_hf   # ← FIXED import
+from utils.hf_api import query_hf
 
 def answer_query(question):
     retrieved_docs = search(question)
