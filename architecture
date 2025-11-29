@@ -1,0 +1,36 @@
+       ┌───────────────┐
+       │ Streamlit App │
+       │  UI/Frontend  │
+       └───────┬───────┘
+               │ Upload PDFs
+               ▼
+       ┌───────────────┐
+       │   PyPDF Loader │
+       └───────┬───────┘
+               │ Extracted Text
+               ▼
+       ┌────────────────────┐
+       │ SentenceTransformers│
+       │ (MiniLM Embeddings) │
+       └────────┬────────────┘
+                │ Embeddings
+                ▼
+       ┌────────────────────┐
+       │   FAISS Index      │
+       └────────┬────────────┘
+                │ Query → Similarity Search
+                ▼
+       ┌────────────────────┐
+       │ Retrieved Chunks   │
+       └────────┬────────────┘
+                │ Context + Question
+                ▼
+       ┌────────────────────────────┐
+       │ HuggingFace LLM (Llama 3.1)│
+       │   → Generates Final Answer │
+       └──────────┬─────────────────┘
+                  │
+                  ▼
+       ┌──────────────────────┐
+       │ Streamlit Output     │
+       └──────────────────────┘
