@@ -1,8 +1,8 @@
-import requests #type:ignore
+import requests
 import os
-from dotenv import load_dotenv #type:ignore
-import os
+from dotenv import load_dotenv
 
+# Load .env from project root
 env_path = os.path.join(os.path.dirname(__file__), "..", ".env")
 load_dotenv(env_path)
 
