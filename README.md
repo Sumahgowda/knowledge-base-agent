@@ -29,3 +29,25 @@ A smart Question-Answering system that lets you upload PDFs, extracts their cont
 └── README.md
 
 
+Installation & Running Locally
+Follow these steps to test and run the project on your machine.
+1️⃣ Clone the Repository
+git clone https://github.com/Sumahgowda/knowledge-base-agent
+cd knowledge-base-agent
+2️⃣ Create and Activate Virtual Environment
+Windows
+python -m venv venv
+venv\Scripts\activate
+Mac/Linux
+python3 -m venv venv
+source venv/bin/activate
+3️⃣ Install Dependencies
+pip install -r requirements.txt
+4️⃣ Add Environment Variables
+Create a .env file in the project root:
+HF_API_KEY=your_huggingface_api_key
+You can get the API key from:
+🔗 https://huggingface.co/settings/tokens
+5️⃣ Run the App
+streamlit run app.py
+
