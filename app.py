@@ -1,7 +1,7 @@
-import streamlit as st #type:ignore
+import streamlit as st
 import os
 from utils.loader import load_pdfs_from_paths
-from utils.embed_store import build_index
+from utils.embed_store import build_index, index_exists
 from utils.qa import answer_query
 
 st.set_page_config(page_title="Knowledge Base Agent", layout="wide")
@@ -30,17 +30,18 @@ with tab1:
                 file_paths.append(path)
 
             docs = load_pdfs_from_paths(file_paths)
+
             if docs:
                 build_index(docs)
                 st.success("FAISS index created successfully!")
             else:
-                st.error("Could not extract text.")
+                st.error("Could not extract text from PDFs.")
 
 # ----------------------- QUERY SECTION ------------------------
 with tab2:
     st.header("Ask a question from your Knowledge Base")
 
-    if not os.path.exists("vector.index"):
+    if not index_exists():
         st.warning("⚠️ Please upload documents and build the index first.")
     else:
         query = st.text_input("Enter your question")
